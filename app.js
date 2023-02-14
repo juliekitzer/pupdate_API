@@ -71,12 +71,12 @@ console.log("hello", userid, dogid)
     res.json({ results });
 })
 
-app.get('/api/Activity', async function (req, res) {
+app.get('https://pupdate-api.onrender.com/api/Activity', async function (req, res) {
     let results = await Activity.findAll();
     res.json({ results });
 })
 
-app.get('/api/Activity/:dogid', async function (req, res) {
+app.get('https://pupdate-api.onrender.com/api/Activity/:dogid', async function (req, res) {
     let { dogid } = req.params;
     let results = await Activity.findAll({
         order: [["date", "DESC"], ["time", "DESC"]],
@@ -104,18 +104,18 @@ app.post('/api/Activity/create', async function (req, res) {
     res.json({ results });
 })
 
-app.get('/api/User', async function (req, res) {
+app.get('https://pupdate-api.onrender.com/api/User', async function (req, res) {
     let results = await Activity.findAll();
     res.json({ results });
 })
 
-app.get('/api/User/:id', async function (req, res) {
+app.get('https://pupdate-api.onrender.com/api/User/:id', async function (req, res) {
     let { id } = req.params;
     let results = await User.findByPk(id);
     res.json(results);
 })
 
-app.get ('/api/user/username/:username', async function (req, res){
+app.get ('https://pupdate-api.onrender.com/api/user/username/:username', async function (req, res){
 const {username} = req.params 
 let results = await User.findOne({
     where:{username:username}
@@ -201,7 +201,7 @@ app.post('/api/JoinTable/create', async function (req, res) {
     
 })
 
-app.get('/api/Dog/:userid', async function (req, res) {
+app.get('https://pupdate-api.onrender.com/api/Dog/:userid', async function (req, res) {
     let { userid } = req.params;
     let results = await JoinTable.findAll({
         order: [["createdAt", "ASC"]],
@@ -215,7 +215,7 @@ app.get('/api/Dog/:userid', async function (req, res) {
     
 });
 
-app.get('/api/dog/delete/:id', async function (req, res) {
+app.get('https://pupdate-api.onrender.com/api/dog/delete/:id', async function (req, res) {
     const { id } = req.params;
     let results = await Dog.destroy({
         where: {
